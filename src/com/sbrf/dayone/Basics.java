@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 
 public class Basics {
     public static void main(String[] args) {
-        P6 test = new P6();
-        test.solve();
+        P1 p1 = new P1();
+        p1.solve();
     }
 }
 
