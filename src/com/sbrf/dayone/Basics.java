@@ -3,14 +3,12 @@ package com.sbrf.dayone;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Basics {
     public static void main(String[] args) {
-        P1 p1 = new P1();
-        p1.solve();
+        P17 test = new P17();
+        test.solve();
     }
 }
 
@@ -313,5 +311,53 @@ class P15 {
 }
 
 class P16 {
+    private final int FROM = 2;
+    private final int TO = 50_000;
+
+    public void solve() {
+        int count = 0;
+        for (int i = FROM; i < TO; i++) {
+            if (String.valueOf(i).indexOf('2') != -1) {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+class P17 {
+    private final int ROWS = 6;
+    private final int COLUMNS = 7;
+
+
+    public void solve() {
+        int[][] arr = new int[ROWS][COLUMNS];
+        System.out.println("source array:");
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
+                arr[i][j] = (int) (Math.random() * 10);
+                System.out.print(arr[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < ROWS; i++) {
+            int[] tempArr = arr[i];
+            int[] reversedArr = Arrays.stream(tempArr)
+                    .boxed()
+                    .sorted(Collections.reverseOrder())
+                    .mapToInt(Integer::intValue)
+                    .toArray();
+            arr[i] = reversedArr;
+        }
+
+        System.out.println("reversed array:");
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
+                System.out.print(arr[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
 
 }
