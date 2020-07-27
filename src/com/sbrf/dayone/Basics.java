@@ -4,10 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.DoubleStream;
 
 public class Basics {
     public static void main(String[] args) {
-        P17 test = new P17();
+        P20 test = new P20();
         test.solve();
     }
 }
@@ -44,7 +45,7 @@ class P4 {
     private StringBuilder sb;
 
     public void solve() {
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in));) {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
             String templ;
             str = in.readLine();
             templ = str.substring(0, str.length() / 2);
@@ -62,7 +63,7 @@ class P4 {
 }
 
 class P5 {
-    private Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
 
     public void solve() {
         String num = in.nextLine();
@@ -75,7 +76,7 @@ class P5 {
 }
 
 class P6 {
-    private Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
     private final double DECREASE = 0.17d;
 
 
@@ -88,7 +89,7 @@ class P6 {
 }
 
 class P7 {
-    private Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
 
     public void solve() {
         long num = in.nextLong();
@@ -101,7 +102,7 @@ class P7 {
 }
 
 class P8 {
-    private Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
 
     private boolean isPrime(int n) {
         if (n <= 1) {
@@ -147,7 +148,7 @@ class P9 {
 }
 
 class P10 {
-    private Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
     private int[] fib;
 
     public void solve() {
@@ -167,7 +168,7 @@ class P10 {
 }
 
 class P11 {
-    private Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
 
     public void solve() {
         int a = in.nextInt();
@@ -196,8 +197,8 @@ class P12 {
 }
 
 class P13 {
-    private Scanner in = new Scanner(System.in);
-    private Random random = new Random();
+    private final Scanner in = new Scanner(System.in);
+    private final Random random = new Random();
     private double[] arr;
     private int action = 0;
     private int size;
@@ -264,8 +265,8 @@ class P13 {
 
 
 class P14 {
-    private Scanner in = new Scanner(System.in);
-    private int a = 65;
+    private final Scanner in = new Scanner(System.in);
+    private final int a = 65;
     private int z = 90;
 
 
@@ -273,10 +274,10 @@ class P14 {
         z -= a;
         int result = (int) (Math.random() * ++z) + a;
         char userChoise;
-        int userChoiseInt = 0;
+        int userChoiseInt;
         while (true) {
             userChoise = in.next().charAt(0);
-            userChoiseInt = (int) userChoise;
+            userChoiseInt = userChoise;
             if (userChoiseInt > result) {
                 System.out.println("You're too high");
             } else if (userChoiseInt < result) {
@@ -291,7 +292,7 @@ class P14 {
 }
 
 class P15 {
-    private Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
 
     public void solve() {
         double a = in.nextDouble();
@@ -360,4 +361,95 @@ class P17 {
         }
     }
 
+}
+
+class P18 {
+    private final Scanner in = new Scanner(System.in);
+
+    public void solve() {
+        int a = in.nextInt();
+        int b = in.nextInt();
+        int c = in.nextInt();
+        if ((a >= b + c) || (b >= a + c) || (c >= a + b)) {
+            System.out.print("Треугольник невозможен");
+        } else if ((Math.pow(a, 2) == Math.pow(b, 2) + Math.pow(c, 2)) || (Math.pow(b, 2) == Math.pow(c, 2) + Math.pow(a, 2)) || (Math.pow(c, 2) == Math.pow(b, 2) + Math.pow(a, 2))) {
+            System.out.printf("Треугольник со сторонами: %d, %d, %d - Прямоугольный", a, b, c);
+        } else if ((Math.pow(a, 2) > Math.pow(b, 2) + Math.pow(c, 2)) || (Math.pow(b, 2) > Math.pow(a, 2) + Math.pow(c, 2)) || (Math.pow(c, 2) > Math.pow(a, 2) + Math.pow(b, 2))) {
+            System.out.printf("Треугольник со сторонами: %d, %d, %d - Тупоугольный", a, b, c);
+        } else if ((Math.pow(a, 2) < Math.pow(b, 2) + Math.pow(c, 2)) || (Math.pow(b, 2) < Math.pow(a, 2) + Math.pow(c, 2)) || (Math.pow(c, 2) < Math.pow(a, 2) + Math.pow(b, 2))) {
+            System.out.printf("Треугольник со сторонами: %d, %d, %d - Остроугольный", a, b, c);
+        }
+    }
+}
+
+class P19 {
+    private final Scanner in = new Scanner(System.in);
+    private final String[] RIM = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C"};
+    private final int[] AR = {1, 4, 5, 9, 10, 40, 50, 90, 100};
+
+    public void solve() {
+        int number = in.nextInt();
+        StringBuilder answer = new StringBuilder();
+        for (int i = 8; i >= 0; i--) {
+            while (number >= AR[i]) {
+                number -= AR[i];
+                answer.append(RIM[i]);
+            }
+        }
+        System.out.println(answer);
+    }
+}
+
+class P20 {
+
+    class Record {
+        private final String surName;
+        private final double middlePoint;
+
+        public Record(String surName, double middlePoint) {
+            this.surName = surName;
+            this.middlePoint = middlePoint;
+        }
+
+        @Override
+        public String toString() {
+            return surName + ", средний балл: " + middlePoint;
+        }
+    }
+
+
+    public void solve() {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
+            int count = Integer.parseInt(in.readLine());
+            Record[] records = new Record[count];
+            for (int i = 0; i < count; i++) {
+                StringTokenizer st = new StringTokenizer(in.readLine(), " ");
+                String name = String.valueOf(st.nextElement());
+                double[] points = new double[st.countTokens()];
+                int counter = 0;
+                while (st.hasMoreElements()) {
+                    String temp = String.valueOf(st.nextElement());
+                    points[counter] = Integer.parseInt(temp);
+                    counter++;
+                }
+                int sum = 0;
+//                for (int e : points) {
+//                    sum += e;
+//                }
+                records[i] = new Record(name, DoubleStream.of(points).average().getAsDouble());
+            }
+
+            Arrays.sort(records, (o1, o2) -> {
+                if (o1.middlePoint > o2.middlePoint) return -1;
+                if (o1.middlePoint < o2.middlePoint) return 1;
+                return 0;
+            });
+            for (int i = 0; i < count; i++) {
+                System.out.println(records[i]);
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+    }
 }
