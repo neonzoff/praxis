@@ -5,7 +5,26 @@ import java.util.Scanner;
 
 public class Task4 {
     public static void main(String[] args) {
+        Task4 test = new Task4();
+        test.testCircle();
+    }
 
+    public void testCircle() {
+        Circle circle = new Circle();
+        Circle circle1 = new Circle(2,2,2);
+        System.out.println("Длина окружности circle: " + circle.getLength());
+        System.out.println("Расстояние от центра окружности circle до circle1: " + circle.getDistance(circle1));
+        System.out.println("Соприкасается ли окружность circle с circle1: " + circle.isTouchWith(circle1));
+        System.out.println("Содержит ли окружность circle точку с координатами [ 2 ; 2 ]: " + circle.isContain(2,2));
+        System.out.println("Содержит ли окружность circle внутри окружность circle1: " + circle.isContainCircle(circle1));
+        circle.print();
+        circle.area();
+        circle.move();
+        circle.print();
+        circle.area();
+        circle.multiply(0.5);
+        circle.area();
+        circle.print();
     }
 }
 
@@ -37,9 +56,9 @@ class Circle extends Figure {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите координату Х: ");
         this.x = in.nextDouble();
-        System.out.print("\nВведите координату Y: ");
+        System.out.print("Введите координату Y: ");
         this.y = in.nextDouble();
-        System.out.print("\nВведите радиус: ");
+        System.out.print("Введите радиус: ");
         this.radius = in.nextDouble();
     }
 
@@ -87,6 +106,6 @@ class Circle extends Figure {
 
     @Override
     void area() {
-        System.out.println(PI * Math.pow(radius, 2));
+        System.out.println("Площадь окружности: " + (PI * Math.pow(radius, 2)));
     }
 }
