@@ -12,7 +12,8 @@ public class Main {
         list.add("Test4");
         list.add("Test5");
         System.out.println(list.size());
-        System.out.println(list.get(-1));
+        System.out.println(list.get(0));
+        System.out.println(list.get(4));
         System.out.println(list);
     }
 }
