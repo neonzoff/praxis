@@ -90,7 +90,7 @@ class LList {
             StringJoiner sj = new StringJoiner(",", "[", "]");
             Node currentNode = root;
             while (currentNode != null) {
-                sj.add((String) currentNode.data);
+                sj.add(currentNode.data.toString());
                 currentNode = currentNode.next;
             }
             return sj.toString();
