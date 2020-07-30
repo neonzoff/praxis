@@ -1,19 +1,31 @@
 package com.sbrf.daythree;
 
+import com.sbrf.dayfour.IndexOutOfRangeException;
+
 import java.util.StringJoiner;
 
 public class Main {
     public static void main(String[] args) {
         LList list = new LList();
-        System.out.println(list.size());
+        System.out.println("Размер: " + list.size());
+        System.out.println("Пустой: " + list.isEmpty());
+        list.add("Test0");
         list.add("Test1");
         list.add("Test2");
         list.add("Test3");
+        System.out.println("Содержит Test1: " + list.isContain("Test1"));
+        System.out.println("Содержит Test 1: " + list.isContain("Test 1"));
         list.add("Test4");
-        list.add("Test5");
-        System.out.println(list.size());
+        System.out.println("Размер: " + list.size());
         System.out.println(list.get(0));
         System.out.println(list.get(4));
+        try {
+            System.out.println(list.get(-1));
+            System.out.println(list.get(5));
+        } catch (IndexOutOfRangeException e) {
+            System.out.println(e);
+        }
+
         System.out.println(list);
     }
 }
@@ -45,7 +57,7 @@ class LList {
 
     public Object get(int index) {
         if (index + 1 > size() || index < 0) {
-            return null;
+            throw new IndexOutOfRangeException("Индекс " + index + " вне допустимых значений");
         } else {
             Node currentNode = root;
             for (int i = 0; i != index; i++) {
@@ -70,6 +82,22 @@ class LList {
 
     }
 
+    public boolean isEmpty() {
+        return root == null;
+    }
+
+    public boolean isContain(Object o) {
+        Node currentNode = root;
+        while (currentNode.next != null) {
+            if(currentNode.data.equals(o)) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+
+        return false;
+    }
+
     private Node getLast() {
         if (root == null) {
             return null;
@@ -81,6 +109,7 @@ class LList {
             return currentNode;
         }
     }
+
 
     @Override
     public String toString() {
