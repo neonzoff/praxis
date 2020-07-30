@@ -1,6 +1,9 @@
 package com.sbrf.daytwo;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class Task1 {
     private static final Scanner in = new Scanner(System.in);
@@ -80,61 +83,6 @@ public class Task1 {
         Comparator<Employee> comparator = Comparator.comparing(Employee::getSurName);
         comparator = comparator.thenComparing(Employee::getSalary);
         employees.sort(comparator);
-    }
-
-
-}
-
-class Employee {
-    private String surName;
-    private String name;
-    private String position;
-    private int salary;
-
-    public Employee(String surName, String name, String position, int salary) {
-        this.surName = surName;
-        this.name = name;
-        this.position = position;
-        this.salary = salary;
-    }
-
-    public String getSurName() {
-        return surName;
-    }
-
-    public void setSurName(String surName) {
-        this.surName = surName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Сотрудник: " + surName + " " + name +
-                "\n Должность: " + position +
-                "\n Зарплата: " + salary;
     }
 
 }
