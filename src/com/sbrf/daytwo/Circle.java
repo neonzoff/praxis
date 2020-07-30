@@ -68,7 +68,7 @@ public class Circle extends Figure {
     }
 
     @Override
-    public void area() {
-        System.out.println("Площадь окружности: " + (PI * Math.pow(radius, 2)));
+    public double area() {
+        return (PI * Math.pow(radius, 2));
     }
 }

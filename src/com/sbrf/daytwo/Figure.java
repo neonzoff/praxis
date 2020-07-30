@@ -8,5 +8,5 @@ public abstract class Figure {
 
     public abstract void multiply(double coefficient);
 
-    public abstract void area();
+    public abstract double area();
 }

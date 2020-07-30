@@ -15,12 +15,12 @@ public class Task4 {
         System.out.println("Содержит ли окружность circle точку с координатами [ 2 ; 2 ]: " + circle.isContain(2, 2));
         System.out.println("Содержит ли окружность circle внутри окружность circle1: " + circle.isContainCircle(circle1));
         circle.print();
-        circle.area();
+        System.out.println("Площадь окружности: " + circle.area());
         circle.move();
         circle.print();
-        circle.area();
+        System.out.println("Площадь окружности: " + circle.area());
         circle.multiply(0.5);
-        circle.area();
+        System.out.println("Площадь окружности: " + circle.area());
         circle.print();
     }
 
@@ -28,11 +28,11 @@ public class Task4 {
         Point point = new Point();
         Point point1 = new Point(2, 2);
         Point point2 = new Point(4, 4);
-        point.findChetvert();
+        System.out.println(point.findChetvert());
         System.out.println("Точки лежат на одной прямой: " + point.isCollinear(point1, point2));
         point1.setX(-1);
         point1.setY(5);
-        point1.findChetvert();
+        System.out.println(point1.findChetvert());
         System.out.println("Равны ли точки: " + point2.equalsPoint(point1));
         point2.setX(-1);
         point2.setY(5);
@@ -43,9 +43,9 @@ public class Task4 {
         Triangle triangle = new Triangle();
         System.out.println("Периметр треугольника: " + triangle.perimeter());
         triangle.print();
-        triangle.area();
+        System.out.println("Площадь треугольника: " + triangle.area());
         triangle.multiply(0.5);
-        triangle.area();
+        System.out.println("Площадь треугольника: " + triangle.area());
         triangle.move();
         triangle.print();
     }

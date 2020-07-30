@@ -36,17 +36,17 @@ public class Point {                //точка - абстрактное пон
         this.y = y;
     }
 
-    public void findChetvert() {
+    public String findChetvert() {
         if (x > 0 && y > 0) {
-            System.out.println("Точка лежит в I четверти");
+            return ("Точка лежит в I четверти");
         } else if (x < 0 && y > 0) {
-            System.out.println("Точка лежит во II четверти");
+            return ("Точка лежит во II четверти");
         } else if (x < 0 && y < 0) {
-            System.out.println("Точка лежит в III четверти");
+            return ("Точка лежит в III четверти");
         } else if (x > 0 && y < 0) {
-            System.out.println("Точка лежит в IV четверти");
+            return ("Точка лежит в IV четверти");
         } else {
-            System.out.println("Точка лежит на прямой");
+            return ("Точка лежит на прямой");
         }
     }
 

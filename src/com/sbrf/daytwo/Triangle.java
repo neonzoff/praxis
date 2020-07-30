@@ -48,12 +48,12 @@ public class Triangle extends Figure {
     }
 
     @Override
-    public void area() {
+    public double area() {
         double halfOfPerimeter = perimeter() / 2;
         double ab = Math.sqrt(Math.pow((p2.getX() - p1.getX()), 2) + Math.pow((p2.getY() - p1.getY()), 2));
         double bc = Math.sqrt(Math.pow((p3.getX() - p2.getX()), 2) + Math.pow((p3.getY() - p2.getY()), 2));
         double ca = Math.sqrt(Math.pow((p3.getX() - p1.getX()), 2) + Math.pow((p3.getY() - p1.getY()), 2));
-        System.out.println("Площадь: " + Math.sqrt(halfOfPerimeter * (halfOfPerimeter - ab) * (halfOfPerimeter - bc) * (halfOfPerimeter - ca)));
+        return (Math.sqrt(halfOfPerimeter * (halfOfPerimeter - ab) * (halfOfPerimeter - bc) * (halfOfPerimeter - ca)));
     }
 
 }
