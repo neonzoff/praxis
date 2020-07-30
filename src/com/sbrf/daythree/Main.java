@@ -13,12 +13,13 @@ public class Main {
         list.add("Test1");
         list.add("Test2");
         list.add("Test3");
+        list.add("Test4");
         System.out.println("Содержит Test1: " + list.isContain("Test1"));
         System.out.println("Содержит Test 1: " + list.isContain("Test 1"));
-        list.add("Test4");
         System.out.println("Размер: " + list.size());
         System.out.println(list.get(0));
         System.out.println(list.get(4));
+        System.out.println("Первый элемент: " + list.getFirst());
         try {
             System.out.println(list.get(-1));
             System.out.println(list.get(5));
@@ -26,7 +27,10 @@ public class Main {
             System.out.println(e);
         }
 
-        System.out.println(list);
+        System.out.println("Содержимое списка: " + list);
+        list.clear();
+        System.out.println("Размер после очистки: " + list.size());
+        System.out.println("Содержимое списка: " + list);
     }
 }
 
@@ -89,7 +93,7 @@ class LList {
     public boolean isContain(Object o) {
         Node currentNode = root;
         while (currentNode.next != null) {
-            if(currentNode.data.equals(o)) {
+            if (currentNode.data.equals(o)) {
                 return true;
             }
             currentNode = currentNode.next;
@@ -98,8 +102,25 @@ class LList {
         return false;
     }
 
+    public void clear() {
+        for (Node currentNode = root; currentNode != null; ) {
+            Node next = currentNode.next;
+            currentNode.data = null;
+            currentNode.next = null;
+            currentNode = next;
+        }
+        root = null;
+    }
+
+    public Object getFirst() {
+        if (!isEmpty()) {
+            return root.data;
+        }
+        return null;
+    }
+
     private Node getLast() {
-        if (root == null) {
+        if (isEmpty()) {
             return null;
         } else {
             Node currentNode = root;
@@ -113,16 +134,19 @@ class LList {
 
     @Override
     public String toString() {
-        if (root.next == null) {
-            return "[ " + root.data + " ]";
-        } else {
-            StringJoiner sj = new StringJoiner(",", "[", "]");
-            Node currentNode = root;
-            while (currentNode != null) {
-                sj.add(currentNode.data.toString());
-                currentNode = currentNode.next;
+        if (!isEmpty()) {
+            if (root.next == null) {
+                return "[ " + root.data + " ]";
+            } else {
+                StringJoiner sj = new StringJoiner(",", "[", "]");
+                Node currentNode = root;
+                while (currentNode != null) {
+                    sj.add(currentNode.data.toString());
+                    currentNode = currentNode.next;
+                }
+                return sj.toString();
             }
-            return sj.toString();
         }
+        return null;
     }
 }
