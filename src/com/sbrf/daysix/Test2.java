@@ -1,12 +1,17 @@
 package com.sbrf.daysix;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Test2 {
     private String name;
     private int age;
     private int money;
-    private List<Object> list;
+    private List list;
+    private Set set;
+    private Map map;
+    private UsefulClass usefulClass;
 
     public Test2() {
     }
@@ -16,6 +21,23 @@ public class Test2 {
         this.age = age;
         this.money = money;
         this.list = list;
+        usefulClass = new UsefulClass("test2",2);
+    }
+
+    public Set getSet() {
+        return set;
+    }
+
+    public void setSet(Set set) {
+        this.set = set;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     public String getName() {
@@ -42,11 +64,11 @@ public class Test2 {
         this.money = money;
     }
 
-    public List<Object> getList() {
+    public List getList() {
         return list;
     }
 
-    public void setList(List<Object> list) {
+    public void setList(List list) {
         this.list = list;
     }
 
@@ -67,6 +89,9 @@ public class Test2 {
         return "Name: " + name
                 + "\nAge: " + age
                 + "\nMoney: " + money
-                + "\nList: " + list;
+                + "\nList: " + list
+                + "\nSet: " + set
+                + "\nMap: " + map
+                + "\nClass: " + usefulClass;
     }
 }
