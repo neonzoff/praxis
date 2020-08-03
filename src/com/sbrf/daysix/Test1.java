@@ -66,6 +66,7 @@ public class Test1 {
     public String toString() {
         return "Name: " + name
                 + "\nAge: " + age
-                + "\nMoney: " + money;
+                + "\nMoney: " + money
+                + "\nList: " + list;
     }
 }
