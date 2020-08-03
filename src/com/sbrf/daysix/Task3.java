@@ -14,14 +14,14 @@ public class Task3 {
         test2.setAge(10);
         test2.setMoney(300);
         System.out.println("До копирования:\n" + test1 + " \n\n" + test2);
-        copy(test1,test2);
+        copy(test1, test2);
         System.out.println("\nПосле копирования:\n" + test1 + " \n\n" + test2);
     }
 
 
     public static void copy(Object in, Object out) {
-        Class inClass = in.getClass();
-        Class outClass = out.getClass();
+        Class<?> inClass = in.getClass();
+        Class<?> outClass = out.getClass();
         Field[] inFields = inClass.getDeclaredFields();
         for (Field inField : inFields) {
             try {

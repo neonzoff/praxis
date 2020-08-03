@@ -11,9 +11,9 @@ public class Task1 {
         showMethods(Arrays.asList(test1,test2,new Object()));
     }
 
-    public static <E> void showMethods(List<E> objects) {
-        for (E object : objects) {
-            Class<E> source = (Class<E>) object.getClass();
+    public static void showMethods(List<?> objects) {
+        for (Object object : objects) {
+            Class<?> source = object.getClass();
             Method[] methods = source.getDeclaredMethods();
             for (Method method : methods) {
                 method.setAccessible(true);

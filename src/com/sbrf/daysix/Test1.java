@@ -1,9 +1,22 @@
 package com.sbrf.daysix;
 
+import java.util.List;
+
 public class Test1 {
     private String name;
     private int age;
     private double money;
+    private List<Object> list;
+
+    public Test1() {
+    }
+
+    public Test1(String name, int age, double money, List<Object> list) {
+        this.name = name;
+        this.age = age;
+        this.money = money;
+        this.list = list;
+    }
 
     public String getName() {
         return name;
@@ -27,6 +40,14 @@ public class Test1 {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+
+    public List<Object> getList() {
+        return list;
+    }
+
+    public void setList(List<Object> list) {
+        this.list = list;
     }
 
     public void fly() {
