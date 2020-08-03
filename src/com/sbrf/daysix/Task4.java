@@ -50,7 +50,8 @@ public class Task4 {
                         Map map1 = (Map) toField.get(to);
                         HashMap newMap = new HashMap(map);
                         toField.set(to, newMap);
-                    } else { //Class
+                    } else {
+                        //Class
                         Field source = fromField;
                         Field end = toField;
                         copy(source.get(from), end.get(to));
