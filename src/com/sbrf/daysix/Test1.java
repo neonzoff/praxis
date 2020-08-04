@@ -11,6 +11,7 @@ public class Test1 {
     private List list;
     private Set set;
     private Map map;
+//    private int[] arr;
     private UsefulClass usefulClass;
 
     public Test1() {
@@ -21,8 +22,8 @@ public class Test1 {
         this.age = age;
         this.money = money;
         this.list = list;
-        usefulClass = new UsefulClass("test1",1);
-
+        usefulClass = new UsefulClass("test1", 1);
+//        arr = new int[]{1, 2, 3, 4, 5};
     }
 
     public Set getSet() {
@@ -73,6 +74,10 @@ public class Test1 {
         this.list = list;
     }
 
+//    public int[] getArr() {
+//        return arr;
+//    }
+
     public void fly() {
         System.out.println("test1 is flying!");
     }
@@ -93,6 +98,7 @@ public class Test1 {
                 + "\nList: " + list
                 + "\nSet: " + set
                 + "\nMap: " + map
+//                + "\nArray: " + arr
                 + "\nClass: " + usefulClass;
     }
 }

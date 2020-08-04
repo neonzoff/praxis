@@ -4,8 +4,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 public class Task4 {
-
-    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
         Test1 test1 = new Test1("dmitry", 5, 10d, Arrays.asList(1, 2, 3, 4, 5));
         test1.setSet(new HashSet());
         Set set = test1.getSet();
@@ -22,6 +21,7 @@ public class Task4 {
         System.out.println(test1.getList() == test2.getList());
         System.out.println(test1.getSet() == test2.getSet());
         System.out.println(test1.getMap() == test2.getMap());
+//        System.out.println(test1.getArr() == test2.getArr());
 
     }
 
@@ -50,6 +50,15 @@ public class Task4 {
                         Map map1 = (Map) toField.get(to);
                         HashMap newMap = new HashMap(map);
                         toField.set(to, newMap);
+                    } else if (fromField.getType().isArray()) {
+                        /*
+                        int length = Array.getLength(fromField.get(from));
+                        Object[] array = new Object[length];
+                        for (int i = 0; i < length; i++) {
+                            array[i] = Array.get(fromField,i);
+                        }
+                        toField.set(to,array);
+                        */
                     } else {
                         //Class
                         Field source = fromField;
