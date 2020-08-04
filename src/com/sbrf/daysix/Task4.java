@@ -51,14 +51,12 @@ public class Task4 {
                         HashMap newMap = new HashMap(map);
                         toField.set(to, newMap);
                     } else if (fromField.getType().isArray()) {
-                        /*
-                        int length = Array.getLength(fromField.get(from));
-                        Object[] array = new Object[length];
-                        for (int i = 0; i < length; i++) {
-                            array[i] = Array.get(fromField,i);
-                        }
-                        toField.set(to,array);
-                        */
+//                        int length = Array.getLength(fromField.get(from));
+//                        Object[] array = new Object[length];
+//                        for (int i = 0; i < length; i++) {
+//                            array[i] = Array.get(fromField,i);
+//                        }
+//                        toField.set(to,array);
                     } else {
                         //Class
                         Field source = fromField;

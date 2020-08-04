@@ -11,7 +11,7 @@ public class Test2 {
     private List list;
     private Set set;
     private Map map;
-//    private int[] arr;
+//    private Object[] arr;
     private UsefulClass usefulClass;
 
     public Test2() {
@@ -23,7 +23,7 @@ public class Test2 {
         this.money = money;
         this.list = list;
         usefulClass = new UsefulClass("test2", 2);
-//        arr = new int[]{0, 0, 0, 0};
+//        arr = new Object[]{new Object()};
     }
 
     public Set getSet() {
@@ -74,7 +74,7 @@ public class Test2 {
         this.list = list;
     }
 
-//    public int[] getArr() {
+//    public Object[] getArr() {
 //        return arr;
 //    }
 
